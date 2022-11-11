@@ -62,6 +62,7 @@ Vue.createApp({
             this.company = this.exp[index].company;
             this.startDate = `${startArr[2]}-${startArr[0]}-${startArr[1]}`;
             this.endDate = `${endDateArr[2]}-${endDateArr[0]}-${endDateArr[1]}`;
+            this.$refs.company.focus()
         },
         showExp() {
             let totalExpTime = [];
