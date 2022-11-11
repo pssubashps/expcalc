@@ -20,12 +20,12 @@
         </nav>
         <div class="container">
             <div class="row">
-                <input type="text" v-model="company" name="" id="" class="textbox" placeholder="Company Name">
+                <input type="text"  ref="company" v-model="company" name="" id="" class="textbox" placeholder="Company Name">
            
                 <label for="">Start Date</label><input type="date" class="textbox" v-model="startDate" name="" id="" placeholder="Start Date">
                 <label for="">End Date</label><input type="date" class="textbox" v-model="endDate" name="" id="" placeholder="End  Date">
            
-                <button v-on:click="addExp" class="btn">{{ index === false ? 'Add': 'Update' }}</button>
+                <button v-on:click="addExp" class="btn" id="addExp">{{ index === false ? 'Add': 'Update' }}</button>
             </div>
         </div>
        
@@ -37,17 +37,19 @@
         <div class="container" v-if="isShowExp">
             <div class="row">
                 <table id="customers">
+                    <thead>
                     <tr>
                       <th>Company</th>
                       <th>Start Date</th>
                       <th>End Date</th>
                       <th>Action</th>
                     </tr>
+                </thead>
                     <tr v-for="(e, index) in exp">
-                      <td>{{e.company}}</td>
-                      <td>{{e.startDate}}</td>
-                      <td>{{e.endDate}}</td>
-                      <td> <button class="btn" v-on:click="editExp(index)">Edit</button> &nbsp;| &nbsp; <button v-on:click="deleteExp(index)" class="btn">Delete</button></td>
+                      <td data-label="Company">{{e.company}}</td>
+                      <td data-label="Start Date"> {{e.startDate}}</td>
+                      <td data-label="End Date">{{e.endDate}}</td>
+                      <td > <button class="btn" v-on:click="editExp(index)">Edit</button> &nbsp;| &nbsp; <button v-on:click="deleteExp(index)" class="btn">Delete</button></td>
                     </tr>
                    
                   </table>
