@@ -29,6 +29,10 @@ Vue.createApp({
         },
         addExp() {
             console.log(this.company, this.startDate, this.endDate);
+            const startArr = this.startDate.split('-');
+            const endDateArr = this.endDate.split('-');
+            this.startDate = `${startArr[1]}-${startArr[2]}-${startArr[0]}`;
+            this.endDate = `${endDateArr[1]}-${endDateArr[2]}-${endDateArr[0]}`;
             const temp = {
                 company: this.company,
                 startDate: this.startDate,
@@ -57,6 +61,7 @@ Vue.createApp({
         },
         editExp(index) {
             this.index = index;
+            console.log( this.exp[index]);
             const startArr = this.exp[index].startDate.split('-');
             const endDateArr = this.exp[index].endDate.split('-');
             this.company = this.exp[index].company;
