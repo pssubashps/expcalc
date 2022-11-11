@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp Calculator</title>
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="header" id="app">
+        <nav>
+            <h2>Experience <span class="h2-sec">Calculator</span></h2>
+            <ul>
+                <li  v-if="exp.length >0 "> <button v-on:click="showDetails" class="btn">{{ isShowExp === false ? 'Show Experience': 'Hide Experience' }}</button></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <input type="text" v-model="company" name="" id="" class="textbox" placeholder="Company Name">
+           
+                <label for="">Start Date</label><input type="date" class="textbox" v-model="startDate" name="" id="" placeholder="Start Date">
+                <label for="">End Date</label><input type="date" class="textbox" v-model="endDate" name="" id="" placeholder="End  Date">
+           
+                <button v-on:click="addExp" class="btn">{{ index === false ? 'Add': 'Update' }}</button>
+            </div>
+        </div>
+       
+        
+        <div class="exp-box" v-if="exp.length >0 ">
+            <h1 >{{total}} year</h1>
+            <h3 >{{totalMonth}} months</h3>
+        </div>
+        <div class="container" v-if="isShowExp">
+            <div class="row">
+                <table id="customers">
+                    <tr>
+                      <th>Company</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Action</th>
+                    </tr>
+                    <tr v-for="(e, index) in exp">
+                      <td>{{e.company}}</td>
+                      <td>{{e.startDate}}</td>
+                      <td>{{e.endDate}}</td>
+                      <td> <button class="btn" v-on:click="editExp(index)">Edit</button> &nbsp;| &nbsp; <button v-on:click="deleteExp(index)" class="btn">Delete</button></td>
+                    </tr>
+                   
+                  </table>
+            </div>
+            </div>
+    </div>
+    
+
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="app.js"></script>
+
+</html>
