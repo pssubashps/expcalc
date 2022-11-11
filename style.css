@@ -13,7 +13,10 @@ body{
     padding: 0 10%;
    
 }
-
+.header h2{
+    font-size: 18px;
+   
+}
 nav{
     width: 100%;
     display: flex;
@@ -115,4 +118,75 @@ body{
     text-align: center;
     vertical-align: middle;
 
+}
+
+@media only screen and (max-width:600px){
+    .header {
+        padding: 0 5%;
+    }
+    
+    .row{
+        flex-direction: column;
+        justify-content: left;
+        align-items: inherit;
+    }
+    .row label {
+        margin-top: 10px;
+    }
+    .textbox{
+        margin-top: 10px;
+    }
+    #addExp{
+        margin-top: 10px;
+    }
+    .exp-box{
+        margin-left: 10%;
+    }
+    table {
+        border: 0;
+      }
+    
+      table caption {
+        font-size: 1.3em;
+      }
+      
+      table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+      
+      table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+      }
+      
+      table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+      }
+      
+      table td::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      
+      table td:last-child {
+        border-bottom: 0;
+      }
+    
 }
