@@ -57,6 +57,7 @@ Vue.createApp({
         deleteExp(index) {
             this.exp.splice(index, 1);
             localStorage.setItem("expData",JSON.stringify(this.exp));
+            this.showExp();
 
         },
         editExp(index) {
@@ -97,9 +98,11 @@ Vue.createApp({
             // var mins = Math.floor(secs/60);
             //  var hours = Math.floor(mins/60);
             let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            let months = Math.floor(days / 31);
+            console.log('days'+days);
+          //  let months = Math.floor(days / 31);
             const years = Math.floor(days / 365.25);
-            months = Math.floor(months % 12);
+            const remaingDays = Math.floor(days % 365.25);
+           const  months = Math.floor(remaingDays / 31);
             days = Math.floor(days % 31);
             // hours = Math.floor(hours%24);
             // mins = Math.floor(mins%60);
