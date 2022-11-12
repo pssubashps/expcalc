@@ -13,6 +13,18 @@ body{
     padding: 0 10%;
    
 }
+.logo-letter{
+    background: #3f51b5;
+    /* border: 1px solid red; */
+    border-radius: 52%;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    /* top: 70%; */
+    padding-top: 4px;
+}
 .header h2{
     font-size: 18px;
    
